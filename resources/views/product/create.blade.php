@@ -2,6 +2,11 @@
     
     <header class="header">
         <div class="container h-100">
+            @if (@session()->has('successMessage'))
+            <div class="alert alert-success">
+                {{session('successMessage')}}
+            </div>
+            @endif
             <div class="row justify-content-center align-items-center h-100">
                 <div class="col12 col-md-6">
                     <h1 class="text-center">Inserisci un nuovo prodotto</h1>
@@ -13,6 +18,8 @@
             </div>
         </div>
     </header>
+
+
     
     
     <div class="container">

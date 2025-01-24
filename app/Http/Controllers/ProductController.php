@@ -20,7 +20,7 @@ class ProductController extends Controller
         $product->price = $price;
 
         $product->save();
-        return redirect(route('product.create'));
+        return redirect(route('product.create'))->with('successMessage', 'Hai inserito il prodotto in stock!');
 
     }
 
