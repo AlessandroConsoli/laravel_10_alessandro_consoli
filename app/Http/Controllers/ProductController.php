@@ -20,7 +20,7 @@ class ProductController extends Controller
         $product->price = $price;
 
         $product->save();
-        return redirect()->back();
+        return redirect(route('product.create'));
 
     }
 
@@ -29,6 +29,11 @@ class ProductController extends Controller
         $products = Product::all();
 
         return view('product.index', ['products'=>$products]);
+    }
+
+
+    public function newProduct(){
+        return view('product.create');
     }
 
 }

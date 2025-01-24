@@ -14,7 +14,7 @@
         <div class="row">
 
             @foreach ($products as $product)               
-            <div class="col12 col-md-4">
+            <div class="col12 col-md-4 my-2">
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
                       <h5 class="card-title">{{$product->name}}</h5>
