@@ -9,5 +9,8 @@
             </div>
         </div>
     </header>
+
+    <x-display-messages/>
+
         
 </x-layout>

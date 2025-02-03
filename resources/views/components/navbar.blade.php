@@ -13,8 +13,39 @@
             <a class="nav-link" href="{{route('product.index')}}">Prodotti</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{route('product.store')}}">Inserisci un nuovo prodotto</a>
+            <a class="nav-link" href="{{route('article.index')}}">Archivio articoli</a>
           </li>
+          @auth
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('product.store')}}">Inserisci un nuovo prodotto</a>
+          </li>   
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('article.create')}}">Inserisci un nuovo articolo</a>
+          </li>           
+          @endauth
+
+{{--? condizione per nascondere i tasti "registrati" ed "accedi" se il valore Auth::user() è diverso da vuoto (ovvero False) --}}
+          @guest
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('register')}}">Registrati</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('login')}}">Accedi</a>
+          </li>
+          @endguest              
+
+{{--? condizione per nascondere il tasto logout se il valore Auth::user() è True --}}
+          @auth       
+          <li class="nav-item">
+            <form action="{{route('logout')}}" method="POST">
+              @csrf
+              <button class="nav-link" type="submit">Logout</button>
+            </form>
+          </li>
+          <li class="nav-item nav-user">
+            <a class="nav-link text-info" href="#">Ciao {{Auth::user()->name}}!</a>
+          </li>
+          @endauth          
         </ul>
       </div>
     </div>
